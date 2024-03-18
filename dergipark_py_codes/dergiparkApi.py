@@ -19,7 +19,7 @@ liste_url_makaleler_detay_sayfasi = []
 
 
 def runProject():
-    aranacak_link = input("Lütfen Aramak İstediğiniz Anaktar Kelimeyi Giriniz: ")
+    aranacak_link = input("Please enter the key word you want to search: ")
 
 
     liste_url_makaleler_detay_sayfasi = getMakaleUrl.makale_url_getiren(aranacak_link)
@@ -32,13 +32,13 @@ def runProject():
         makale_pdf_linki = getMakalePDF.makale_pdf_getiren(makale_detay_sayfa_linki)
         makale_pdf_linki = "https://dergipark.org.tr" + makale_pdf_linki
         print("-------------------")
-        print("PDF Çözümlemesi Yapılıyor...")
-        print("Tespit Edilen Makale Link:"+makale_pdf_linki)
+        print("PDF Analysis in Progress...")
+        print("Detected Paper Link:"+makale_pdf_linki)
 
         pdf_adi = aranacak_link + str(indis)
         pdf_indirici = downloadPDF.pdf_indir(makale_pdf_linki, pdf_adi )
         print(pdf_indirici)
 
-    sonuc = input("\nMakale Arama Faaliyeti Başarıyla Tamamlanmıştır.")
+    print("Paper Search Activity Completed Successfully.")
     
 

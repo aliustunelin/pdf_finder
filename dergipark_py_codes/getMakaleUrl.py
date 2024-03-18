@@ -20,12 +20,12 @@ def makale_detay_sayfası_url_topla(aranacak_link):
     # Hata kontrolü
     if response.status_code == 200:
         # HTML içeriğini analiz etmek için BeautifulSoup kullanın
-        print("İlgili Makale Dergipark Veri Tabanında Aranıyor...")
+        print("Search Paper From DB...")
         soup = BeautifulSoup(response.text, 'html.parser')
         
         card_divs = soup.find_all('h5', class_='card-title')
         if not card_divs:
-            print("Arama Sonucu Herhangi Bir Makale Bulunamadı...")
+            print("No Paper Found as a Search Result...")
 
         for card_div in card_divs:
             a_tag = card_div.find('a')
@@ -33,10 +33,10 @@ def makale_detay_sayfası_url_topla(aranacak_link):
                 href_value = a_tag.get('href')
                 list_makale_urls.append(href_value)
                 #print('H5 Başlık Linki:', href_value)
-        print("Arama Sonucu " + str(len(list_makale_urls)) + " Makale Bulunmuştur.") 
+        print("Search Result " + str(len(list_makale_urls)) + " Paper Find.") 
         return list_makale_urls
     else:
-        print('Makale Sayfa indirme hatası:', response.status_code)
+        print('PDF Paper Download Error: ', response.status_code)
 
 
 

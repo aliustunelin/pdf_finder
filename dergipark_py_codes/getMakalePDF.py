@@ -30,7 +30,7 @@ def makale_PDF_linki_ceken(detay_sayfa_linki):
                 #print('H5 Başlık Linki:', href_value)
         return list_makale_urls[0]
     else:
-        print('PDF Sayfa indirme hatası:', response.status_code)
+        print('PDF Paper Download Error:', response.status_code)
 
 
 
